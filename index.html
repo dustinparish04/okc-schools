@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OKC Metro School Scouting Report</title>
+<meta name="description" content="A family scouting report comparing 24 public, charter, private, and Christian schools across OKC, Edmond, and Oakdale — by grade level, with rankings, ratings, tuition, and enrollment steps.">
+
+<!-- Open Graph / iMessage / Facebook preview -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Family School Scouting Report">
+<meta property="og:description" content="24 schools across OKC, Edmond &amp; Oakdale — public, charter, private &amp; Christian — compared by grade level.">
+<meta property="og:image" content="https://dustinparish04.github.io/okc-schools/okc-schools-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://dustinparish04.github.io/okc-schools/">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Family School Scouting Report">
+<meta name="twitter:description" content="24 schools across OKC, Edmond &amp; Oakdale — compared by grade level.">
+<meta name="twitter:image" content="https://dustinparish04.github.io/okc-schools/okc-schools-og.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#A3694F;
+    --navy-mid:#8F5940;
+    --navy-line:#7A4B36;
+    --paper:#F3EAD9;
+    --paper-dim:#EAE0CB;
+    --ink:#241C15;
+    --slate:#6B5D4F;
+    --gold:#2B2118;
+    --gold-soft:#E4D3AC;
+    --cat-public:#5E7482;
+    --cat-charter:#3F5347;
+    --cat-private:#C08A42;
+    --cat-christian:#9C4A36;
+    --line:#DDD0B8;
+    --tabbtn-public:#414D55;
+    --tabbtn-charter:#2E3D34;
+    --tabbtn-private:#2B2019;
+    --tabbtn-christian:#4A2A1E;
+    --card-bg:#211C17;
+    --card-bg-alt:#2A241D;
+    --card-line:#3A3226;
+    --card-ink:#F0E4CE;
+    --card-slate:#A6947C;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--navy-deep);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+  header.hero{
+    background:
+      radial-gradient(ellipse at 20% -10%, rgba(239,217,174,0.16), transparent 55%),
+      linear-gradient(180deg,#7A4B36 0%, var(--navy-deep) 100%);
+    border-bottom:1px solid var(--navy-line);
+    padding:64px 0 40px;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--gold-soft);
+    display:flex;align-items:center;gap:10px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{content:'';width:26px;height:1px;background:var(--gold-soft);display:inline-block;}
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:clamp(36px,5.5vw,62px);
+    line-height:1.02;
+    margin:0 0 18px;
+    color:#F5EBDA;
+    letter-spacing:-0.01em;
+  }
+  h1 em{font-style:normal;color:var(--gold);}
+  .lede{
+    font-size:17px;
+    line-height:1.6;
+    color:#D9CEBE;
+    max-width:660px;
+    margin:0 0 28px;
+  }
+  .scope-line{
+    display:flex;flex-wrap:wrap;gap:10px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    margin-bottom:24px;
+  }
+  .scope-chip{
+    border:1px solid #4A3626;
+    background:#2B2019;
+    padding:7px 13px;
+    border-radius:4px;
+    color:#D9CDBC;
+  }
+  .scope-chip b{color:#F0DFC0;font-weight:600;}
+
+  .jumpnav{display:flex;flex-wrap:wrap;gap:8px;}
+  .jumpnav a{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.05em;
+    color:var(--paper);background:var(--gold);
+    padding:8px 14px;border-radius:999px;text-decoration:none;font-weight:600;
+    transition:background .15s ease, color .15s ease;
+  }
+  .jumpnav a:hover{background:var(--gold-soft);color:var(--gold);}
+
+  .tabbar{
+    position:sticky;top:0;z-index:50;
+    background:rgba(20,18,15,0.97);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid #2E2822;
+  }
+  .tabbar .wrap{
+    display:flex;align-items:center;gap:8px;
+    padding:14px 24px;
+    overflow-x:auto;
+  }
+  .tab{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    font-weight:600;
+    border:2px solid transparent;
+    background:#2B2019;
+    color:#fff;
+    padding:9px 16px;
+    border-radius:999px;
+    cursor:pointer;
+    white-space:nowrap;
+    display:flex;align-items:center;gap:8px;
+    transition:background .15s ease, box-shadow .15s ease, filter .15s ease, transform .1s ease, border-color .15s ease;
+  }
+  .tab .dot{width:7px;height:7px;border-radius:50%;background:#fff;opacity:.6;transition:opacity .15s ease, box-shadow .15s ease;}
+  .tab:hover{filter:brightness(1.25);}
+  .tab.active{
+    font-weight:700;
+    border-color:#fff;
+    box-shadow:0 0 0 1px rgba(0,0,0,0.25), 0 0 12px rgba(255,255,255,0.45);
+    transform:translateY(-1px);
+  }
+  .tab.active .dot{opacity:1;box-shadow:0 0 6px rgba(255,255,255,0.95);}
+  .tab.active:active{transform:scale(0.97) translateY(0);}
+  .tab[data-cat="all"]{background:var(--navy-deep);}
+  .tab[data-cat="public"]{background:var(--tabbtn-public);}
+  .tab[data-cat="charter"]{background:var(--tabbtn-charter);}
+  .tab[data-cat="private"]{background:var(--tabbtn-private);}
+  .tab[data-cat="christian"]{background:var(--tabbtn-christian);}
+  .tab.active[data-cat="public"]{background:var(--cat-public);}
+  .tab.active[data-cat="charter"]{background:var(--cat-charter);}
+  .tab.active[data-cat="private"]{background:var(--cat-private);}
+  .tab.active[data-cat="christian"]{background:var(--cat-christian);}
+  .tabsep{width:1px;height:18px;background:#3A322A;margin:0 2px;flex-shrink:0;}
+
+  section.band{padding:50px 0;border-bottom:1px solid var(--navy-line);}
+  section.band:last-of-type{border-bottom:none;}
+  .band-head{display:flex;align-items:baseline;gap:16px;margin-bottom:8px;flex-wrap:wrap;}
+  .band-icon{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--gold-soft);
+    border:1px solid var(--navy-line);padding:3px 9px;border-radius:4px;
+  }
+  .band-head h2{
+    font-family:'Fraunces',serif;
+    font-size:30px;font-weight:600;margin:0;color:#F5EBDA;
+  }
+  .band-sub{font-size:14px;color:#A6987F;margin:0 0 24px;max-width:680px;line-height:1.55;}
+
+  .compare-scroll{overflow-x:auto;border:1px solid #2E2822;border-radius:6px;margin-bottom:30px;background:#17140F;}
+  table.compare{
+    width:100%;border-collapse:collapse;min-width:980px;
+    font-size:13.5px;
+    background:#17140F;
+  }
+  table.compare th, table.compare td{
+    padding:11px 14px;text-align:left;border-bottom:1px solid #2E2822;
+    white-space:nowrap;
+  }
+  table.compare thead th{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--gold-soft);background:#0E0C0A;
+    position:sticky;top:0;
+  }
+  table.compare tbody tr:hover{background:rgba(255,255,255,0.04);}
+  table.compare td.school-name{font-weight:600;color:#F5EBDA;white-space:normal;min-width:200px;}
+  table.compare td.mono, table.compare th.mono{font-family:'IBM Plex Mono',monospace;}
+  table.compare td.rank{font-family:'IBM Plex Mono',monospace;color:var(--gold-soft);font-weight:600;white-space:normal;min-width:150px;}
+  .pill{
+    display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;
+    padding:3px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.04em;
+    color:#fff;font-weight:600;
+  }
+  .pill.public{background:var(--cat-public);}
+  .pill.charter{background:var(--cat-charter);}
+  .pill.private{background:var(--cat-private);}
+  .pill.christian{background:var(--cat-christian);}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:20px;}
+  .card{
+    background:var(--card-bg);
+    color:var(--card-ink);
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 14px 30px -16px rgba(0,0,0,0.55);
+    display:flex;flex-direction:column;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:0 20px 36px -16px rgba(0,0,0,0.65);}
+  .stripe{height:7px;width:100%;}
+  .card-body{padding:22px 22px 20px;display:flex;flex-direction:column;gap:13px;flex:1;}
+  .card-top h3{
+    font-family:'Fraunces',serif;font-size:20px;font-weight:600;margin:0;line-height:1.15;
+  }
+  .tag-row{display:flex;gap:6px;flex-wrap:wrap;}
+  .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.05em;text-transform:uppercase;
+    padding:3px 7px;border-radius:3px;color:#fff;flex-shrink:0;
+  }
+  .tag.public{background:var(--cat-public);}
+  .tag.charter{background:var(--cat-charter);}
+  .tag.private{background:var(--cat-private);}
+  .tag.christian{background:var(--cat-christian);}
+
+  .usnews-badge{
+    display:flex;align-items:center;gap:8px;
+    background:var(--card-bg-alt);border:1px solid var(--card-line);border-radius:5px;
+    padding:8px 11px;font-size:12.5px;line-height:1.4;
+  }
+  .usnews-badge .mark{
+    font-family:'Fraunces',serif;font-weight:700;font-size:13px;color:var(--gold);
+    background:var(--gold-soft);border-radius:3px;padding:2px 6px;flex-shrink:0;
+  }
+
+  .gs-banner{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    padding:8px 12px;border-radius:5px;font-family:'IBM Plex Mono',monospace;
+    color:#fff;
+  }
+  .gs-banner .gs-label{display:flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.04em;text-transform:uppercase;opacity:.92;}
+  .gs-banner .gs-star{font-size:12px;line-height:1;}
+  .gs-banner .gs-score{font-family:'Fraunces',serif;font-weight:700;font-size:17px;line-height:1;white-space:nowrap;}
+  .gs-banner .gs-score-max{font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:11px;opacity:.75;margin-left:1px;}
+  .gs-banner .gs-score-sm{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:12px;white-space:normal;text-align:right;}
+  .gs-banner.gs-high{background:#3F6B4F;}
+  .gs-banner.gs-mid{background:#B9873F;}
+  .gs-banner.gs-low{background:#9C4A36;}
+  .gs-banner.gs-na{background:#5A4F42;}
+  .gs-banner.gs-varies{background:#4A5A44;}
+
+  .statline{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    border-top:1px solid var(--card-line);border-bottom:1px solid var(--card-line);
+    padding:12px 0;
+  }
+  .statline div{padding:0 10px;border-right:1px solid var(--card-line);}
+  .statline div:last-child{border-right:none;}
+  .statline .num{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:15px;color:var(--card-ink);display:block;}
+  .statline .lbl{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--card-slate);}
+
+  .field{font-size:13.5px;line-height:1.55;}
+  .field .k{
+    font-family:'IBM Plex Mono',monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;
+    color:var(--card-slate);display:block;margin-bottom:3px;
+  }
+  .field .v{color:var(--card-ink);}
+  .pros-box{
+    background:var(--card-bg-alt);border-left:3px solid var(--gold);
+    padding:10px 12px;border-radius:0 4px 4px 0;font-size:13.5px;line-height:1.5;
+  }
+  .card-footer{
+    margin-top:auto;padding-top:6px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;
+  }
+  .family-tags{display:flex;gap:6px;flex-wrap:wrap;}
+  .fam-pill{
+    font-size:11px;font-family:'IBM Plex Mono',monospace;
+    background:var(--card-bg-alt);border:1px solid var(--card-line);padding:3px 9px;border-radius:999px;color:var(--card-ink);
+  }
+  .site-link{
+    font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--gold-soft);
+    text-decoration:none;border-bottom:1px solid var(--gold-soft);
+  }
+  .site-link:hover{color:var(--navy-deep);border-color:var(--navy-deep);}
+  .enroll-btn{
+    font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:600;text-transform:uppercase;letter-spacing:.04em;
+    color:#fff;background:var(--navy-deep);padding:7px 13px;border-radius:5px;text-decoration:none;
+    display:inline-flex;align-items:center;gap:6px;transition:background .15s ease;
+  }
+  .enroll-btn:hover{background:var(--gold);color:var(--gold-soft);}
+  .footer-links{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+
+  details.more{font-size:13.5px;}
+  details.more summary{
+    cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;
+    letter-spacing:.05em;color:var(--card-slate);list-style:none;display:flex;align-items:center;gap:6px;
+  }
+  details.more summary::-webkit-details-marker{display:none;}
+  details.more summary::before{content:'+';font-size:14px;color:var(--gold);font-weight:700;}
+  details.more[open] summary::before{content:'\2013';}
+  details.more .more-inner{padding-top:10px;display:flex;flex-direction:column;gap:10px;}
+
+  .district-strip{
+    display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:10px;
+  }
+  @media (max-width:720px){.district-strip{grid-template-columns:1fr;}}
+  .district-card{
+    border:1px solid var(--card-line);background:var(--card-bg);border-radius:8px;padding:20px 22px;
+  }
+  .district-card h4{
+    font-family:'Fraunces',serif;font-size:17px;margin:0 0 8px;color:#F5EBDA;
+    display:flex;align-items:center;gap:8px;
+  }
+  .district-card p{font-size:13px;line-height:1.6;color:#C7B9A3;margin:0;}
+  .district-card .stat{font-family:'IBM Plex Mono',monospace;color:var(--gold-soft);}
+
+  footer{border-top:1px solid var(--navy-line);padding:36px 0 60px;}
+  footer p{font-size:12.5px;line-height:1.7;color:#93876F;max-width:780px;}
+  footer a{color:var(--gold-soft);}
+
+  .empty-state{
+    padding:40px 0;text-align:center;color:#A6987F;font-family:'IBM Plex Mono',monospace;font-size:13px;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Field Notes &mdash; OKC Metro</div>
+    <h1>The Family<br><em>School Scouting Report</em></h1>
+    <p class="lede">A working comparison of public, charter, private, and Christian schools across Oklahoma City, Edmond, and Oakdale &mdash; organized by grade level, with U.S. News &amp; World Report rankings layered in alongside the family's own notes on tuition, tours, and applications.</p>
+    <div class="scope-line">
+      <span class="scope-chip">Coverage: <b>OKCPS &middot; Edmond Public Schools &middot; Oakdale &middot; OKC charters &middot; private &amp; Christian</b></span>
+      <span class="scope-chip">Rankings: <b>U.S. News &amp; World Report, Oklahoma</b></span>
+      <span class="scope-chip">Updated: <b>June 2026</b></span>
+    </div>
+    <div class="jumpnav">
+      <a href="#prek">PreK &amp; Early Childhood</a>
+      <a href="#elementary">Elementary</a>
+      <a href="#middle">Middle School</a>
+      <a href="#high">High School</a>
+    </div>
+  </div>
+</header>
+
+<nav class="tabbar">
+  <div class="wrap">
+    <button class="tab active" data-cat="all"><span class="dot"></span>All schools</button>
+    <span class="tabsep"></span>
+    <button class="tab" data-cat="public"><span class="dot"></span>Public</button>
+    <button class="tab" data-cat="charter"><span class="dot"></span>Charter</button>
+    <button class="tab" data-cat="private"><span class="dot"></span>Private</button>
+    <button class="tab" data-cat="christian"><span class="dot"></span>Christian</button>
+    <span class="count" id="resultCount" style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#7C84A0;flex-shrink:0;padding-left:12px;"></span>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section style="padding:48px 0 8px;">
+    <div class="band-head"><h2 style="font-size:26px;">District context</h2></div>
+    <p class="band-sub">Public-school quality in OKC is a school-by-school story more than a district-reputation story &mdash; here's the backdrop before you get into individual schools below.</p>
+    <div class="district-strip">
+      <div class="district-card">
+        <h4>&#129517; Edmond Public Schools</h4>
+        <p><span class="stat">~25,900 students</span> across 28 schools. Ranked <span class="stat">top 10%</span> of OK districts (37th of 532) on combined proficiency, with a <span class="stat">92%+ graduation rate</span> at all three high schools. Niche ranks it <span class="stat">#250 nationally</span>. Oakdale (below) sits inside Edmond city limits but runs as its own single-school district.</p>
+      </div>
+      <div class="district-card">
+        <h4>&#127961;&#65039; Oklahoma City Public Schools (OKCPS)</h4>
+        <p><span class="stat">~33,200 students</span> across 59 schools. District-wide proficiency is well below the state average, but that average hides a lot of range &mdash; magnet programs like Classen School of Advanced Studies and neighborhood schools like Wilson Elementary post scores well above the district norm.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="prek" data-band="prek">
+    <div class="band-head"><span class="band-icon">01</span><h2>PreK &amp; Early Childhood</h2></div>
+    <p class="band-sub">Programs that take 3&ndash;5 year olds. U.S. News doesn't rank schools at the PreK level (its rankings start at elementary), so the snapshot below leans on enrollment, schedule flexibility, and the family's own application notes.</p>
+    <div class="compare-scroll">
+      <table class="compare">
+        <thead><tr>
+          <th>School</th><th>Category</th><th class="mono">Ages served</th><th class="mono">Enrollment</th><th class="mono">Ratio</th><th class="mono">Tuition</th>
+        </tr></thead>
+        <tbody class="compareBody" data-band="prek"></tbody>
+      </table>
+    </div>
+    <div class="grid cardGrid" data-band="prek"></div>
+    <div class="empty-state" data-band="prek" style="display:none;">No schools in this band match the filter.</div>
+  </section>
+
+  <section class="band" id="elementary" data-band="elementary">
+    <div class="band-head"><span class="band-icon">02</span><h2>Elementary School</h2></div>
+    <p class="band-sub">U.S. News ranks Oklahoma elementary schools out of 658 statewide based on state test performance. Private/Christian schools aren't assessed the same way and so don't receive a U.S. News number &mdash; that's noted directly where it applies.</p>
+    <div class="compare-scroll">
+      <table class="compare">
+        <thead><tr>
+          <th>School</th><th>Category</th><th class="mono">Grades</th><th class="mono">Enrollment</th><th class="mono">Ratio</th><th>U.S. News rank (OK)</th><th class="mono">Tuition</th>
+        </tr></thead>
+        <tbody class="compareBody" data-band="elementary"></tbody>
+      </table>
+    </div>
+    <div class="grid cardGrid" data-band="elementary"></div>
+    <div class="empty-state" data-band="elementary" style="display:none;">No schools in this band match the filter.</div>
+  </section>
+
+  <section class="band" id="middle" data-band="middle">
+    <div class="band-head"><span class="band-icon">03</span><h2>Middle School</h2></div>
+    <p class="band-sub">U.S. News ranks Oklahoma middle schools out of 396 statewide. Oakdale and Classen Middle School of Advanced Studies are the standouts in this band among the schools researched here.</p>
+    <div class="compare-scroll">
+      <table class="compare">
+        <thead><tr>
+          <th>School</th><th>Category</th><th class="mono">Grades</th><th class="mono">Enrollment</th><th class="mono">Ratio</th><th>U.S. News rank (OK)</th><th class="mono">Tuition</th>
+        </tr></thead>
+        <tbody class="compareBody" data-band="middle"></tbody>
+      </table>
+    </div>
+    <div class="grid cardGrid" data-band="middle"></div>
+    <div class="empty-state" data-band="middle" style="display:none;">No schools in this band match the filter.</div>
+  </section>
+
+  <section class="band" id="high" data-band="high">
+    <div class="band-head"><span class="band-icon">04</span><h2>High School</h2></div>
+    <p class="band-sub">U.S. News ranks Oklahoma high schools out of ~395 statewide (and out of 17,901 nationally), weighing state test performance, AP/IB participation, and college readiness. This is the band with the clearest gap between OKCPS's open-enrollment high schools and its magnet/charter options.</p>
+    <div class="compare-scroll">
+      <table class="compare">
+        <thead><tr>
+          <th>School</th><th>Category</th><th class="mono">Grades</th><th class="mono">Enrollment</th><th class="mono">Ratio</th><th>U.S. News rank (OK / National)</th><th class="mono">Tuition</th>
+        </tr></thead>
+        <tbody class="compareBody" data-band="high"></tbody>
+      </table>
+    </div>
+    <div class="grid cardGrid" data-band="high"></div>
+    <div class="empty-state" data-band="high" style="display:none;">No schools in this band match the filter.</div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong style="color:#C7B9A3;">Sources &amp; caveats:</strong> Family notes (application steps, tours, pricing, "who's interested") came straight from the household sheet for the original four private/Christian schools; the rest of the private-school detail below was researched from each school's own site, PrivateSchoolReview, and Niche. Rankings are from U.S. News &amp; World Report's Oklahoma elementary, middle, and high school lists (usnews.com/education/k12), current as of June 2026. Enrollment, ratios, and sports counts were cross-checked against GreatSchools, Niche, SchoolDigger, PublicSchoolReview, and Oklahoma State Department of Education report cards. U.S. News does not rank PreK programs or most private/Christian/Catholic schools, since those aren't assessed on the same state-testing model &mdash; that's noted directly wherever it applies. All figures change year to year; confirm current numbers, tuition, and application windows directly with each school before relying on them for a decision.</p>
+  </div>
+</footer>
+
+<script>
+const schools = [
+  {
+    name:"Wilson Elementary School",
+    cats:["public"], levels:["prek","elementary"],
+    district:"Oklahoma City Public Schools",
+    grades:"PK\u20134", ages:"PreK (age 4)",
+    enrollment:"398", ratio:"15:1",
+    greatSchools:"6",
+    academics:"47% math / 47% reading proficient \u2014 well above the OKCPS district average (12\u201314%)",
+    sports:"PE/activity offerings counted by GreatSchools as 11 — Oklahoma interscholastic (OSSAA) sports generally begin in 7th grade, so this reflects intramural/after-school activity programming rather than named competitive teams.",
+    tuition:"Free (zoned public)",
+    apply:"Neighborhood-zoned OKCPS school — in-boundary students are automatically enrolled (no application needed) via the OKCPS Infinite Campus portal. Out-of-boundary families apply as a transfer through EnrollOKC.org during the same window as charter/magnet applications (opens Dec 1, priority deadline mid-February).",
+    tour:"No district-wide tour calendar \u2014 contact the school office directly to schedule a visit.",
+    pros:"One of the strongest-performing schools inside OKCPS, arts-integrated mission (\u201cWise Wolves\u201d), free tuition, Gifted &amp; Talented program.",
+    interested:[], tech:"Yes", website:"https://wilson.okcps.org/",
+    applyLink:"https://www.okcps.org/enroll",
+    usNews:{ elementary:"#59 of 658 in OK" }
+  },
+  {
+    name:"Oakdale Public School",
+    cats:["public"], levels:["prek","elementary","middle"],
+    district:"Oakdale School District (Edmond)",
+    grades:"PK\u20138", ages:"PreK (age 4)",
+    enrollment:"~702", ratio:"14:1",
+    greatSchools:"9",
+    academics:"65% math / 60% reading proficient \u2014 one of the highest-performing public schools in Oklahoma",
+    sports:"PE/activity offerings counted by GreatSchools as 12, plus a Gifted &amp; Talented program — named competitive teams (via OSSAA) begin at the middle school level (grades 7–8) here, not elementary.",
+    tuition:"Free (zoned public)",
+    apply:"Free, zoned public school — residency inside the small Oakdale district is required, verified with 2 proofs of address, shot records, and a birth certificate via the school's online enrollment database. Out-of-district transfers are allowed under OK Senate Bill 783, but are only approved after capacity is set on July 1, and any unused waitlist clears at year-end.",
+    tour:"No public tour calendar \u2014 contact the district office directly.",
+    pros:"Among the highest-performing public elementary/middle schools in Oklahoma, very low student-teacher ratio, single-school district means tight community feel.",
+    interested:[], tech:"", website:"https://www.oakdale.org/",
+    applyLink:"https://www.oakdale.org/page/enrollment",
+    usNews:{ elementary:"#10 of 658 in OK", middle:"#2 of 396 in OK" }
+  },
+  {
+    name:"Clegern Elementary School",
+    cats:["public"], levels:["prek","elementary"],
+    district:"Edmond Public Schools",
+    grades:"PK\u20135", ages:"PreK (age 4)",
+    enrollment:"434", ratio:"19\u201320:1",
+    greatSchools:"8",
+    academics:"70\u201374% math / 70\u201374% reading proficient \u2014 SchoolDigger ranks it #1 of 614 OK elementary schools for 2024\u201325",
+    sports:"Standard Edmond elementary PE/activities (no interscholastic sports at this level)",
+    tuition:"Free (zoned public)",
+    apply:"Neighborhood-zoned Edmond Public Schools elementary — zoned students register through the district's online Infinite Campus enrollment portal. Out-of-boundary families use Edmond's Student Transfers process; transfers are capacity-dependent and decided after the district sets enrollment counts.",
+    tour:"Contact the school office directly; Edmond doesn't post a centralized elementary tour calendar.",
+    pros:"The single highest-ranked elementary school in the Edmond district and one of the top in the state; feeds into Memorial High School.",
+    interested:[], tech:"", website:"https://clegern.edmondschools.net/",
+    applyLink:"https://www.edmondschools.net/page/enrollment/",
+    usNews:{ elementary:"#2 of 658 in OK" }
+  },
+  {
+    name:"Chisholm Elementary School",
+    cats:["public"], levels:["prek","elementary"],
+    district:"Edmond Public Schools",
+    grades:"PK\u20135", ages:"PreK (age 4)",
+    enrollment:"762\u2013862 (varies by source/year)", ratio:"17:1",
+    greatSchools:"9",
+    academics:"66% math / 57% reading proficient \u2014 SchoolDigger ranks it 12th of 614 OK elementary schools; feeds into Cimarron Middle School, then Memorial High School",
+    sports:"Standard Edmond elementary PE/activities (no interscholastic sports at this level)",
+    tuition:"Free (zoned public)",
+    apply:"Neighborhood-zoned Edmond Public Schools elementary \u2014 zoned students register through the district's online Infinite Campus enrollment portal. Out-of-boundary families use Edmond's Student Transfers process; transfers are capacity-dependent and decided after the district sets enrollment counts.",
+    tour:"Contact the school office directly; Edmond doesn't post a centralized elementary tour calendar.",
+    pros:"One of Edmond's top-performing elementary schools \u2014 ranks in the top 2% of Oklahoma elementary schools; direct feeder into Cimarron Middle School and Memorial High School.",
+    interested:[], tech:"", website:"https://chisholm.edmondschools.net/",
+    applyLink:"https://www.edmondschools.net/page/enrollment/",
+    usNews:{ elementary:"#15 of 658 in OK" }
+  },
+  {
+    name:"Classen School of Advanced Studies",
+    cats:["public"], levels:["middle","high"],
+    district:"Oklahoma City Public Schools (magnet)",
+    grades:"5\u201312 (Middle 5\u20138, High @ Northeast 9\u201312)", ages:"",
+    enrollment:"890 (MS) / 810 (HS)", ratio:"17\u201318:1",
+    greatSchools:{middle:"9",high:"10"},
+    academics:"HS: 35\u201339% math / 60\u201364% reading proficient, 95% graduation rate, 83% AP participation. MS: 39% math / 48% reading proficient.",
+    sports:"Basketball (Boys &amp; Girls), Baseball, Football, Softball, Golf, Cross Country, Soccer, Tennis, Volleyball, Track &amp; Field, plus a strong Visual &amp; Performing Arts program",
+    tuition:"Free (public magnet \u2014 OKCPS application/audition required)",
+    apply:"An OKCPS “application school” (not zoned) — apply through the unified EnrollOKC.org portal. For 2026-27: applications open Dec 1, priority deadline Feb 13, 2026, with results the week of Feb 23. Visual & Performing Arts tracks require an audition in addition to the application.",
+    tour:"Check the OKCPS magnet schools page for open-house dates ahead of the application window.",
+    pros:"The strongest academic option inside OKCPS by a wide margin \u2014 #1 high school in Oklahoma per U.S. News, with a respected Visual &amp; Performing Arts program layered on top.",
+    interested:[], tech:"", website:"https://csashs.okcps.org/",
+    applyLink:"https://www.enrollokc.org/apply",
+    usNews:{ middle:"#11 of 396 in OK", high:"#1 of 395 in OK \u00b7 #339 national" }
+  },
+  {
+    name:"Cimarron Middle School",
+    cats:["public"], levels:["middle"],
+    district:"Edmond Public Schools",
+    grades:"6\u20138", ages:"",
+    enrollment:"~866\u2013879", ratio:"17\u201318:1",
+    greatSchools:"7",
+    academics:"27\u201339% math / 32\u201351% reading proficient depending on source/year \u2014 U.S. News ranks it #101 of 396 Oklahoma middle schools. Serves a more economically diverse population (45% economically disadvantaged) than some Edmond peer schools.",
+    sports:"Standard OSSAA middle school athletics (specific team list not itemized in public data)",
+    tuition:"Free (zoned public)",
+    apply:"Neighborhood-zoned Edmond Public Schools middle school \u2014 zoned students register through the district's online Infinite Campus enrollment portal. Out-of-boundary families use Edmond's Student Transfers process; transfers are capacity-dependent.",
+    tour:"Contact the school office directly; Edmond doesn't post a centralized middle school tour calendar.",
+    pros:"Direct feeder from two of Edmond's top elementary schools (Chisholm and Clegern) into Memorial High School.",
+    interested:[], tech:"", website:"https://cimarron.edmondschools.net/",
+    applyLink:"https://www.edmondschools.net/page/enrollment/",
+    usNews:{ middle:"#101 of 396 in OK" }
+  },
+  {
+    name:"Edmond North High School",
+    cats:["public"], levels:["high"],
+    district:"Edmond Public Schools",
+    grades:"9\u201312", ages:"",
+    enrollment:"~2,532", ratio:"20:1",
+    greatSchools:"10",
+    academics:"43% math / 68% reading proficient, 93% graduation rate, 42% AP participation",
+    sports:"Baseball, Basketball, Cheer, Cross Country, Football, Golf, Pom, Soccer, Softball, Swimming, Tennis, Track &amp; Field, Volleyball, Wrestling (14 sports)",
+    tuition:"Free (zoned public)",
+    apply:"Zoned by address within Edmond Public Schools — register through the district's online Infinite Campus enrollment portal. Out-of-boundary transfer requests go through Edmond's Student Transfers process and are capacity-dependent.",
+    tour:"Contact the counseling office for incoming-freshman orientation and tour information.",
+    pros:"Largest of the three Edmond high schools, strong AP offerings, well-resourced athletics and activities.",
+    interested:[], tech:"", website:"https://north.edmondschools.net/",
+    applyLink:"https://www.edmondschools.net/page/enrollment/",
+    usNews:{ high:"#5 of 395 in OK \u00b7 #788 national" }
+  },
+  {
+    name:"Edmond Memorial High School",
+    cats:["public"], levels:["high"],
+    district:"Edmond Public Schools",
+    grades:"9\u201312", ages:"",
+    enrollment:"~2,668", ratio:"19\u201320:1",
+    greatSchools:"9",
+    academics:"38% math / 64% reading proficient, strong AP program reputation",
+    sports:"Baseball, Basketball, Cross Country, Fast-Pitch Softball, Football, Golf, Soccer, Swimming, Tennis, Track &amp; Field, Volleyball, Wrestling (12 sports)",
+    tuition:"Free (zoned public)",
+    apply:"Zoned by address within Edmond Public Schools — register through the district's online Infinite Campus enrollment portal. Out-of-boundary transfer requests go through Edmond's Student Transfers process and are capacity-dependent.",
+    tour:"Contact the counseling office for incoming-freshman orientation and tour information.",
+    pros:"Edmond's original comprehensive high school, deep AP bench and strong community/spirit culture.",
+    interested:[], tech:"", website:"https://memorial.edmondschools.net/",
+    applyLink:"https://www.edmondschools.net/page/enrollment/",
+    usNews:{ high:"#6 of 395 in OK \u00b7 #1,000 national" }
+  },
+  {
+    name:"Edmond Santa Fe High School",
+    cats:["public"], levels:["high"],
+    district:"Edmond Public Schools",
+    grades:"9\u201312", ages:"",
+    enrollment:"~2,780", ratio:"22:1",
+    greatSchools:"9",
+    academics:"35% math / 58% reading proficient, 92% graduation rate, 46\u201358% AP participation",
+    sports:"Baseball, Basketball, Cheerleading, Cross Country, Football, Golf, Pom, Soccer, Softball, Swimming, Tennis, Track, Volleyball, Wrestling (14 sports)",
+    tuition:"Free (zoned public)",
+    apply:"Zoned by address within Edmond Public Schools — register through the district's online Infinite Campus enrollment portal. Out-of-boundary transfer requests go through Edmond's Student Transfers process and are capacity-dependent.",
+    tour:"Contact the counseling office for incoming-freshman orientation and tour information.",
+    pros:"Largest enrollment of the three Edmond high schools, broad elective and activity catalog.",
+    interested:[], tech:"", website:"https://santafe.edmondschools.net/",
+    applyLink:"https://www.edmondschools.net/page/enrollment/",
+    usNews:{ high:"#7 of 395 in OK \u00b7 #1,084 national" }
+  },
+  {
+    name:"Harding Charter Preparatory High School",
+    cats:["charter"], levels:["high"],
+    district:"Charter (OKC)",
+    grades:"9\u201312", ages:"",
+    enrollment:"573", ratio:"19:1",
+    greatSchools:"10",
+    academics:"85\u201399% AP participation rate (sources vary by year), Niche grade A, 95% graduation rate",
+    sports:"Baseball, Basketball, Soccer, Softball, Volleyball, Wrestling (per MaxPreps coverage — may not be fully exhaustive)",
+    tuition:"Free (public charter, lottery)",
+    apply:"Tuition-free public charter, no entrance requirement — apply through the unified EnrollOKC.org portal alongside every other OKC charter and application school. For 2026-27: applications open Dec 1, priority deadline Feb 13, 2026, lotteries (if oversubscribed) run Feb 20, results the week of Feb 23. You must accept your seat by the school's enrollment deadline or lose it.",
+    tour:"Check EnrollOKC.org and the school's site for open-house dates ahead of the application window.",
+    pros:"Rigorous AP-focused college-prep culture with strong outcomes, free tuition, no academic entrance requirement \u2014 routinely the #1 or #2 ranked high school in Oklahoma.",
+    interested:[], tech:"", website:"https://www.hardingcharterprep.org/",
+    applyLink:"https://www.enrollokc.org/apply",
+    usNews:{ high:"#2 of 395 in OK \u00b7 #407 national" }
+  },
+  {
+    name:"Harding Fine Arts Academy",
+    cats:["charter"], levels:["middle","high"],
+    district:"Charter (OKC)",
+    grades:"5\u20137, 9\u201312", ages:"",
+    enrollment:"\u2014", ratio:"\u2014",
+    greatSchools:"10",
+    academics:"Named one of Oklahoma's top high schools by U.S. News; AP curriculum integrated with arts training",
+    sports:"Arts electives emphasized over athletics (dance, music, theatre, visual arts)",
+    tuition:"Free (public charter, lottery)",
+    apply:"Tuition-free public charter, no entrance requirement — apply through the unified EnrollOKC.org portal. Same metro-wide timeline as all OKC charters: applications open Dec 1, priority deadline Feb 13, 2026, lottery Feb 20, results the week of Feb 23.",
+    tour:"Check the school's site for arts-showcase and open-house dates.",
+    pros:"Rare combination of a solid AP track and serious arts integration, free tuition.",
+    interested:[], tech:"", website:"https://www.hardingfinearts.org/",
+    applyLink:"https://www.enrollokc.org/apply",
+    usNews:{ high:"#14 of 395 in OK" }
+  },
+  {
+    name:"Harding Charter Preparatory Middle School at Independence",
+    cats:["charter"], levels:["middle"],
+    district:"Charter (Nichols Hills / OKC)",
+    grades:"5\u20138", ages:"",
+    enrollment:"~391", ratio:"~22:1",
+    greatSchools:"3",
+    academics:"Formerly Independence Charter Middle School \u2014 Oklahoma's first charter school (converted 1999). Feeds directly into Harding Charter Preparatory High School. Niche grade C+ in recent years; results vary year to year.",
+    sports:"OSSAA middle school athletics offered",
+    tuition:"Free (public charter, lottery)",
+    apply:"Tuition-free public charter, no entrance requirement — apply through the unified EnrollOKC.org portal. Same metro-wide timeline as all OKC charters: applications open Dec 1, priority deadline Feb 13, 2026, lottery Feb 20, results the week of Feb 23.",
+    tour:"Check hardingcharterprep.org/schools for open-house dates ahead of the lottery window.",
+    pros:"Direct, same-district pipeline into Harding Charter Prep \u2014 useful if the high school is the real target and you want a known feeder.",
+    interested:[], tech:"", website:"https://www.hardingcharterprep.org/",
+    applyLink:"https://www.enrollokc.org/apply",
+    usNews:{}
+  },
+  {
+    name:"John W. Rex Charter Elementary",
+    cats:["charter"], levels:["prek","elementary","middle"],
+    district:"Charter (Downtown OKC)",
+    grades:"PK\u20136 (expanding toward 8th)", ages:"PreK (age 4)",
+    enrollment:"766", ratio:"17:1",
+    greatSchools:"7",
+    academics:"38% math / 36% reading proficient \u2014 above the OKCPS-area average; National Blue Ribbon School in 2020",
+    sports:"2 activity offerings per GreatSchools at the elementary level (not individually named in public data)",
+    tuition:"Free (public charter, lottery)",
+    apply:"Tuition-free public charter, no admission criteria — apply through the unified EnrollOKC.org portal. Same metro-wide timeline as all OKC charters: applications open Dec 1, priority deadline Feb 13, 2026, lottery Feb 20, results the week of Feb 23.",
+    tour:"Open houses posted seasonally on the school's site ahead of the lottery window.",
+    pros:"Only charter located in downtown OKC, diverse student body, unique downtown partnerships.",
+    interested:[], tech:"", website:"https://www.johnrexschool.org/",
+    applyLink:"https://www.enrollokc.org/apply",
+    usNews:{ elementary:"#222 of 658 in OK", middle:"#26 of 396 in OK" }
+  },
+  {
+    name:"Santa Fe South Schools",
+    cats:["charter"], levels:["prek","elementary","middle","high"],
+    district:"Charter (South OKC, multi-campus)",
+    grades:"PK\u201312 across Spero ES, Penn ES, Hills ES, West MS, South MS, HS &amp; Pathways Middle College", ages:"PreK",
+    enrollment:"~380\u2013490 per campus", ratio:"~20:1",
+    greatSchools:"varies",
+    academics:"Mixed by campus; Pathways Middle College lets students graduate with an associate degree concurrent with their diploma. Not individually ranked by U.S. News as a single school (multi-campus system).",
+    sports:"OSSAA athletics at the HS campus",
+    tuition:"Free (public charter, no admission criteria)",
+    apply:"Tuition-free, no admission criteria at all — apply by campus through the unified EnrollOKC.org portal. Same metro-wide timeline as all OKC charters: applications open Dec 1, priority deadline Feb 13, 2026; a random lottery only kicks in if a specific campus is oversubscribed.",
+    tour:"Tours and info sessions posted by campus on santafesouthschools.org.",
+    pros:"True open-access model (no selection criteria), concurrent-enrollment Middle College pathway, several South OKC campus options by grade band.",
+    interested:[], tech:"", website:"https://www.santafesouthschools.org/",
+    applyLink:"https://www.enrollokc.org/apply",
+    usNews:{}
+  },
+  {
+    name:"KIPP OKC College Prep",
+    cats:["charter"], levels:["prek","elementary","middle"],
+    district:"Charter (OKC)",
+    grades:"PreK\u20133 &amp; 6\u20138", ages:"PreK",
+    enrollment:"\u2014", ratio:"\u2014",
+    greatSchools:"6",
+    academics:"College-prep model with a national KIPP network track record in underserved communities. Not individually ranked by U.S. News in the sources reviewed.",
+    sports:"Varies by campus; not itemized in public data",
+    tuition:"Free (public charter, lottery)",
+    apply:"Tuition-free public charter, lottery-based — apply through the unified EnrollOKC.org portal. Same metro-wide timeline as all OKC charters: applications open Dec 1, priority deadline Feb 13, 2026, lottery Feb 20, results the week of Feb 23.",
+    tour:"Check kippokc.org for open-house dates.",
+    pros:"Strong college-prep culture and structured academic expectations from a well-known national network.",
+    interested:[], tech:"", website:"https://kippok.org/kipp-okc/",
+    applyLink:"https://www.enrollokc.org/apply",
+    usNews:{}
+  },
+  {
+    name:"Westminster School",
+    cats:["private"], levels:["prek","elementary","middle"],
+    district:"Independent, non-sectarian (OKC)",
+    grades:"PK\u20138", ages:"PreK (age 3)",
+    enrollment:"590", ratio:"9\u201314:1",
+    greatSchools:null,
+    academics:"Montessori-influenced approach, ISAS accredited, very low student-teacher ratio. Not ranked by U.S. News \u2014 private schools aren't assessed under the same state-testing model.",
+    sports:"6\u201310 sports: basketball, football, soccer, tennis, track, volleyball",
+    tuition:"3-Day $9,630 \u00b7 5-Day Half Day $12,050 \u00b7 5-Day Full Day $17,760 \u00b7 Kindergarten $18,080",
+    apply:"Waitlist-based admission. Once on the waitlist, families are invited to grade-appropriate open houses. In the year before entry, the Director of Admission contacts you to schedule a mandatory parent tour. Placement is guided by available space, met requirements, and date of first contact.",
+    tour:"Mandatory parent tour scheduled by the Director of Admission in the year before enrollment \u2014 it's a required step in the process, not optional.",
+    pros:"\u201cUses Montessori approach \u2014 no tech \u2014 sports\u201d (per the Bryan family). Low ratios, 60+ year track record (founded 1963), strong elementary-focused community feel.",
+    interested:["Bryans","Kluths"], tech:"None", website:"http://westminsterschool.org/",
+    applyLink:"https://www.westminsterschool.org/admission",
+    usNews:{}
+  },
+  {
+    name:"The Academy of Classical Christian Studies",
+    cats:["private","christian"], levels:["prek","elementary","middle","high"],
+    district:"Private Classical Christian (Midtown / North / South campuses)",
+    grades:"PK3\u201312", ages:"PreK3 (age 3)",
+    enrollment:"~900\u20131,049", ratio:"~12:1",
+    greatSchools:null,
+    academics:"Classical curriculum (Grammar \u2192 Dialectic \u2192 Rhetoric stages), ACCS-affiliated, AdvancED accredited; Niche reports 100% college matriculation. Not ranked by U.S. News (private).",
+    sports:"Confirmed at the Dialectic &amp; Rhetoric level (6th\u201312th): Cross Country, Volleyball (Girls), Basketball (Boys &amp; Girls). Younger/other divisions add additional sports (5\u201315 total depending on campus) \u2014 full list not itemized in public data.",
+    tuition:"Blended PK3\u20135th (2-day): $7,750 ($250\u2013$2,750 after tax credits) \u00b7 Traditional PK\u20135th (5-day): $12,960 ($5,460\u2013$7,960 after tax credits)",
+    apply:"Application opens September of the prior year, $350 fee. Create an account, then submit the \u201cNew Student Application\u201d \u2014 you can log in and out to manage an open application.",
+    tour:"\u201cView events\u201d are posted through the year on the school site \u2014 none had been posted yet for 2026 as of this sheet's last update.",
+    pros:"Classical education model, multi-campus flexibility (2-day to 5-day schedule options by stage).",
+    interested:["Kluths"], tech:"None", website:"https://theacademyok.org/",
+    applyLink:"https://theacademyok.org/admissions/",
+    usNews:{}
+  },
+  {
+    name:"Crossings Christian School",
+    cats:["private","christian"], levels:["prek","elementary","middle","high"],
+    district:"Private Christian (North OKC)",
+    grades:"PK\u201312", ages:"PreK3 (age 3)",
+    enrollment:"~1,100\u20131,115", ratio:"~12:1",
+    greatSchools:null,
+    academics:"19 AP courses on campus, ACSI accredited, first OK private school to offer the AP Capstone program; Class of 2025: 30 AP Scholars, 100% pass rate on AP Seminar &amp; Research. Not ranked by U.S. News (private).",
+    sports:"21 sports: football, basketball, baseball, soccer, tennis, track, wrestling, cheer, pom, golf, softball, cross country",
+    tuition:"PreK3: $5,078\u2013$10,590 \u00b7 PreK4/5: $5,691\u2013$10,590 (range reflects 2-day to 5-day schedule options)",
+    apply:"Priority window opens July 1 of the prior year; testing/interviews begin in January, scheduled as materials arrive. Sibling &amp; current-family priority applies in early February. If full, applicants go to a non-prioritized wait pool and are matched as openings occur.",
+    tour:"Virtual tours available now at crossingsschool.org/admissions/tours; in-person tours typically open around September of the prior year.",
+    pros:"Huge schedule flexibility (2 to 5 days/week across grades), strong balance of athletics, fine arts, and academics on an 11-acre athletic complex.",
+    interested:["Kluths"], tech:"", website:"https://www.crossingsschool.org/",
+    applyLink:"https://www.crossingsschool.org/admissions",
+    usNews:{}
+  },
+  {
+    name:"Oklahoma Christian School (OCS)",
+    cats:["private","christian"], levels:["prek","elementary","middle","high"],
+    district:"Private Christian (Edmond)",
+    grades:"PK\u201312", ages:"PreK (age 4)",
+    enrollment:"~1,190\u20131,206 (largest in school history)", ratio:"~12:1",
+    greatSchools:null,
+    academics:"13 AP courses + 6 concurrent college courses, ACSI accredited at its highest level; recent National Merit Finalist. Not ranked by U.S. News (private).",
+    sports:"Football, Basketball (Boys &amp; Girls), Baseball, Soccer (Boys &amp; Girls), Tennis, Golf, Cross Country, Track &amp; Field, Swimming, Volleyball (10 sports)",
+    tuition:"~$12,230 total (per family notes)",
+    apply:"Online application opens August of the prior year, $125 fee.",
+    tour:"Scheduled online \u2014 first available date noted as September 30.",
+    pros:"Largest enrollment in school history and growing, recent state athletic championships, expanding campus and facilities.",
+    interested:["Kluths"], tech:"", website:"https://ocssaints.org/",
+    applyLink:"https://ocssaints.org/",
+    usNews:{}
+  },
+  // ---------------- MORE PRIVATE (metro-wide) ----------------
+  {
+    name:"Casady School",
+    cats:["private","christian"], levels:["prek","elementary","middle","high"],
+    district:"Independent Episcopal (NW OKC)",
+    grades:"PK\u201312", ages:"PreK",
+    enrollment:"~998\u20131,100", ratio:"5\u20139:1",
+    greatSchools:null,
+    academics:"Episcopal, college-preparatory; ISAS/NAIS/NAES accredited. 14 OSSAA state championships in the last two years; 14 graduates playing collegiate sports in 2025. Not ranked by U.S. News (private).",
+    sports:"15 sports: baseball, basketball, cheer, cross country, field hockey, football, golf, soccer, softball, swimming, tennis, track, volleyball, weightlifting, wrestling",
+    tuition:"~$24,850\u2013$26,345 (Upper Division; varies by division, lower in younger grades)",
+    apply:"Admission cycle opens September 1 of the prior year via the MyCasady portal, $75 fee. Early Decision deadline Dec 1, Regular Decision Jan 15, rolling/space-permitting after that. Natural entry points are PreK, Kindergarten, 1st, 5th, and 9th grade. Acceptance rate ~43%.",
+    tour:"Shadow day required for Kindergarten applicants; tours and visit days scheduled through the Admission Office once the cycle opens.",
+    pros:"Most selective and resource-rich option researched here \u2014 80-acre campus, very low ratios, strong athletics and arts, sizable financial aid program (~20-25% of students receive aid).",
+    interested:[], tech:"", website:"https://www.casady.org/",
+    applyLink:"https://www.casady.org/admission/how-to-apply",
+    usNews:{}
+  },
+  {
+    name:"Heritage Hall",
+    cats:["private"], levels:["prek","elementary","middle","high"],
+    district:"Independent, non-sectarian (NW OKC)",
+    grades:"PK\u201312", ages:"PreK",
+    enrollment:"~890\u20131,049", ratio:"9:1",
+    greatSchools:null,
+    academics:"Independent college-prep; NAIS/ISAS accredited. 99% of graduates go on to a 4-year college. Not ranked by U.S. News (private).",
+    sports:"14 OSSAA-sanctioned sports beginning in 7th grade: Football, Basketball, Baseball, Softball, Soccer, Tennis, Golf, Swimming, Cross Country, Track &amp; Field, Volleyball, Wrestling, Cheer, Pom",
+    tuition:"PreK: $13,100\u2013$20,975 depending on schedule \u00b7 Grades 2\u20134: $27,075 \u00b7 Grades 5\u20136: $28,200 \u00b7 Grades 7\u201312: $31,975",
+    apply:"Admission based on academic merit, test scores, and personal qualities (not need-blind, not a lottery). Application typically opens in fall of the prior year through the Admission Office; financial aid (grades 5–12 only) is reviewed only after an admission offer.",
+    tour:"Scheduled through the Admission Office (admission@heritagehall.com).",
+    pros:"110-acre campus, strong fine arts and athletics alongside academics, well-regarded \u201cCharger Code\u201d character program; about a third of recent grads stayed in-state for college.",
+    interested:[], tech:"", website:"https://www.heritagehall.com/",
+    applyLink:"https://www.heritagehall.com/admission",
+    usNews:{}
+  },
+  {
+    name:"Bishop McGuinness Catholic High School",
+    cats:["private","christian"], levels:["high"],
+    district:"Catholic (Archdiocese of OKC)",
+    grades:"9\u201312", ages:"",
+    enrollment:"~717\u2013793", ratio:"11:1",
+    greatSchools:null,
+    academics:"NCEA/Cognia accredited college-prep Catholic high school. Niche grade A+. Not ranked by U.S. News (private).",
+    sports:"15 sports: baseball, basketball, bowling, cheer, cross country, dance, football, golf, soccer, softball, swimming, tennis, track, volleyball, wrestling",
+    tuition:"~$18,150",
+    apply:"Rolling admission, reviewed as applications arrive. Submit the online application plus a $125 non-refundable fee; incoming freshmen take a placement test the fall before their intended start. Optional shadow days (“Villain Walk”) let prospective students experience a school day before applying.",
+    tour:"Scheduled through the Admission Office; shadow days available for prospective freshmen.",
+    pros:"One of the most established Catholic college-prep options in the metro, broad sports/AP offering, strong community reputation.",
+    interested:[], tech:"", website:"https://www.bmchs.org/",
+    applyLink:"https://www.bmchs.org/admissions",
+    usNews:{}
+  },
+  {
+    name:"Mount St. Mary Catholic High School",
+    cats:["private","christian"], levels:["high"],
+    district:"Catholic, Sisters of Mercy (South OKC)",
+    grades:"9\u201312", ages:"",
+    enrollment:"~401", ratio:"10:1",
+    greatSchools:null,
+    academics:"22 College Board-certified AP courses plus 16 honors/Pre-AP courses; block (A/B) schedule. The oldest high school in Oklahoma (founded 1903). Not ranked by U.S. News (private).",
+    sports:"Football (OSSAA-confirmed) plus a full Rockets athletics program; specific full sport-by-sport list not confirmed from an official source — contact the school for current offerings",
+    tuition:"~$8,350",
+    apply:"Draws from 13 Catholic partner elementary schools plus charter, public, and home-schooled students across central Oklahoma; contact admissions for current deadlines.",
+    tour:"Bus service offered from many metro communities (OKC, Edmond, Moore, Mustang, Yukon, and more) based on demand \u2014 worth asking about for commute planning.",
+    pros:"Lowest tuition among the metro's college-prep Catholic high schools researched here, strong service-learning culture (\u201cMercy Values\u201d), serves a genuinely metro-wide community.",
+    interested:[], tech:"", website:"https://mountstmary.org/",
+    applyLink:"https://mountstmary.org/admissions/",
+    usNews:{}
+  },
+  {
+    name:"Christ the King Catholic School",
+    cats:["private","christian"], levels:["prek","elementary","middle"],
+    district:"Catholic parish school (Nichols Hills / OKC)",
+    grades:"PK\u20138", ages:"PreK (age 4)",
+    enrollment:"~515\u2013598", ratio:"~11\u201321:1 (varies by source)",
+    greatSchools:null,
+    academics:"Parish elementary school founded 1949, accredited by the Oklahoma State Department of Education. Not ranked by U.S. News (private).",
+    sports:"6 sports per PrivateSchoolReview (specific names not itemized in public data)",
+    tuition:"~$8,245\u2013$9,480",
+    apply:"Admission priority order: active parishioners with kids currently enrolled, then parishioners on the waitlist, then non-parishioners with siblings already enrolled, then other Catholic and non-Catholic families as space allows. 3rd grade+ applicants do a half-day shadow visit.",
+    tour:"Shadow day arranged through the school office as part of the application process.",
+    pros:"Long-established Catholic parish school in a central, walkable Nichols Hills-adjacent location; strong parish/community ties.",
+    interested:[], tech:"", website:"https://www.ckschool.com/",
+    applyLink:"https://www.ckschool.com/join-ctk",
+    usNews:{}
+  },
+  {
+    name:"St. Elizabeth Ann Seton Catholic School",
+    cats:["private","christian"], levels:["prek","elementary","middle"],
+    district:"Catholic parish school (Edmond)",
+    grades:"PK\u20138", ages:"PreK3 (age 3, fully potty-trained) / PreK4 (age 4)",
+    enrollment:"~389\u2013494", ratio:"11:1",
+    greatSchools:null,
+    academics:"Accredited by the Oklahoma Conference of Catholic School Accrediting Association. Tuition is subsidized by the parish, so the true per-student cost (~$9,750) runs well above what families are billed. Not ranked by U.S. News (private).",
+    sports:"4 sports: archery, basketball, soccer, volleyball",
+    tuition:"~$4,725\u2013$9,750 (parish-subsidized; varies by parishioner status)",
+    apply:"Kindergarten requires an application + assessment; grades 1\u20138 require current report card, birth certificate, immunization and baptismal records, plus a possible parent/student interview. $450 non-refundable registration fee per student.",
+    tour:"Tour and shadow opportunities offered during the application process.",
+    pros:"Edmond's main Catholic parish elementary option, strong academic reputation (scores consistently above state/national averages), parish-subsidized tuition keeps cost well below most metro private schools.",
+    interested:[], tech:"", website:"https://www.stelizabethedmond.org/",
+    applyLink:"https://www.stelizabethedmond.org/admission",
+    usNews:{}
+  },
+  {
+    name:"Christian Heritage Academy",
+    cats:["private","christian"], levels:["prek","elementary","middle","high"],
+    district:"Private Christian (Del City, east metro)",
+    grades:"PK\u201312", ages:"PreK",
+    enrollment:"~629", ratio:"~18:1",
+    greatSchools:null,
+    academics:"ACSI accredited; uses the Principle Approach to American Christian education (one of the only schools in OK using this method); senior class ACT average ~23.5 cumulative over 10 years. Not ranked by U.S. News (private).",
+    sports:"8\u201310 sports: baseball, basketball, cheer, football, golf, tennis, volleyball, weightlifting",
+    tuition:"~$7,200\u2013$10,300",
+    apply:"Moved to continuous (rolling) enrollment starting with the 2024\u201325 school year, with a notably high ~95% acceptance rate \u2014 apply anytime through the Office of Admissions rather than waiting for a single deadline.",
+    tour:"Scheduled through the Office of Admissions; contact admissions@cha.org.",
+    pros:"One of the more affordable PK\u201312 Christian options in the metro, high acceptance rate, serves the east-metro/Del City area that's underrepresented among the other schools here.",
+    interested:[], tech:"", website:"https://www.cha.org/",
+    applyLink:"https://www.cha.org/admissions/",
+    usNews:{}
+  },
+];
+
+const catLabel = {public:"Public",charter:"Charter",private:"Private",christian:"Christian"};
+
+function pillsFor(cats){ return cats.map(c=>`<span class="tag ${c}">${catLabel[c]}</span>`).join(" "); }
+function comparePillsFor(cats){ return cats.map(c=>`<span class="pill ${c}">${catLabel[c]}</span>`).join(" "); }
+function stripeStyle(cats){
+  const colors = {public:"var(--cat-public)",charter:"var(--cat-charter)",private:"var(--cat-private)",christian:"var(--cat-christian)"};
+  if(cats.length===1) return `background:${colors[cats[0]]};`;
+  const c0=colors[cats[0]], c1=colors[cats[1]];
+  return `background:linear-gradient(90deg, ${c0} 0%, ${c0} 50%, ${c1} 50%, ${c1} 100%);`;
+}
+function usNewsForBand(school, band){
+  if(band==="prek") return null;
+  const v = school.usNews && school.usNews[band];
+  if(v) return v;
+  const isPrivate = school.cats.includes("private") || school.cats.includes("christian");
+  return isPrivate ? "Not ranked by U.S. News (private)" : "Not individually ranked";
+}
+function gsBannerHtml(school, band){
+  let gs = school.greatSchools;
+
+  // banded ratings (e.g. Classen: different school for middle vs high)
+  if(gs && typeof gs === "object"){
+    gs = gs[band] || null;
+  }
+
+  if(!gs){
+    return `<div class="gs-banner gs-na"><span class="gs-label"><span class="gs-star">\u2605</span>GreatSchools</span><span class="gs-score">Not Rated</span></div>`;
+  }
+
+  if(gs === "varies"){
+    return `<div class="gs-banner gs-varies"><span class="gs-label"><span class="gs-star">\u2605</span>GreatSchools</span><span class="gs-score gs-score-sm">Varies by campus</span></div>`;
+  }
+
+  const leading = parseInt(gs, 10);
+  let tier = "gs-mid";
+  if(!isNaN(leading)){
+    if(leading >= 8) tier = "gs-high";
+    else if(leading >= 5) tier = "gs-mid";
+    else tier = "gs-low";
+  }
+  return `<div class="gs-banner ${tier}"><span class="gs-label"><span class="gs-star">\u2605</span>GreatSchools</span><span class="gs-score">${gs}<span class="gs-score-max">/10</span></span></div>`;
+}
+
+const activeCats = new Set();
+const bands = ["prek","elementary","middle","high"];
+
+function renderBand(band){
+  const list = schools.filter(s=>s.levels.includes(band) && (activeCats.size===0 || s.cats.some(c=>activeCats.has(c))));
+  const body = document.querySelector(`.compareBody[data-band="${band}"]`);
+  const grid = document.querySelector(`.cardGrid[data-band="${band}"]`);
+  const empty = document.querySelector(`.empty-state[data-band="${band}"]`);
+
+  if(band==="prek"){
+    body.innerHTML = list.map(s=>`
+      <tr>
+        <td class="school-name">${s.name}</td>
+        <td>${comparePillsFor(s.cats)}</td>
+        <td class="mono">${s.ages||"\u2014"}</td>
+        <td class="mono">${s.enrollment||"\u2014"}</td>
+        <td class="mono">${s.ratio||"\u2014"}</td>
+        <td class="mono">${s.tuition}</td>
+      </tr>`).join("");
+  } else {
+    body.innerHTML = list.map(s=>`
+      <tr>
+        <td class="school-name">${s.name}</td>
+        <td>${comparePillsFor(s.cats)}</td>
+        <td class="mono">${s.grades}</td>
+        <td class="mono">${s.enrollment||"\u2014"}</td>
+        <td class="mono">${s.ratio||"\u2014"}</td>
+        <td class="rank">${usNewsForBand(s, band)}</td>
+        <td class="mono">${s.tuition}</td>
+      </tr>`).join("");
+  }
+
+  if(list.length===0){ grid.innerHTML=""; empty.style.display="block"; return; }
+  empty.style.display="none";
+
+  grid.innerHTML = list.map(s=>{
+    const rank = band==="prek" ? null : usNewsForBand(s, band);
+    const badge = rank ? `<div class="usnews-badge"><span class="mark">U.S. News</span><span>${rank}</span></div>` : "";
+    return `
+    <article class="card">
+      <div class="stripe" style="${stripeStyle(s.cats)}"></div>
+      ${gsBannerHtml(s, band)}
+      <div class="card-body">
+        <div class="card-top"><h3>${s.name}</h3></div>
+        <div class="tag-row">${pillsFor(s.cats)}</div>
+        ${badge}
+        <div class="field"><span class="k">District / Type</span><span class="v">${s.district}</span></div>
+        <div class="statline">
+          <div><span class="num">${s.grades}</span><span class="lbl">Grades</span></div>
+          <div><span class="num">${s.enrollment||"\u2014"}</span><span class="lbl">Enrollment</span></div>
+          <div><span class="num">${s.ratio||"\u2014"}</span><span class="lbl">Ratio</span></div>
+        </div>
+        <div class="field"><span class="k">Academics</span><span class="v">${s.academics}</span></div>
+        <div class="field"><span class="k">Sports</span><span class="v">${s.sports}</span></div>
+        <div class="field"><span class="k">Tuition</span><span class="v">${s.tuition}</span></div>
+        <div class="pros-box">${s.pros}</div>
+        <details class="more">
+          <summary>Application &amp; tour details</summary>
+          <div class="more-inner">
+            <div class="field"><span class="k">How to apply</span><span class="v">${s.apply}</span></div>
+            <div class="field"><span class="k">How to tour</span><span class="v">${s.tour}</span></div>
+            ${s.tech ? `<div class="field"><span class="k">Technology</span><span class="v">${s.tech}</span></div>` : ""}
+          </div>
+        </details>
+        <div class="card-footer">
+          <div class="family-tags">${s.interested.map(f=>`<span class="fam-pill">\u2605 ${f}</span>`).join("")}</div>
+          <div class="footer-links">
+            ${s.applyLink ? `<a class="enroll-btn" href="${s.applyLink}" target="_blank" rel="noopener">Start enrollment \u2192</a>` : ""}
+            ${s.website ? `<a class="site-link" href="${s.website}" target="_blank" rel="noopener">Visit site \u2192</a>` : ""}
+          </div>
+        </div>
+      </div>
+    </article>`;
+  }).join("");
+}
+
+function renderAll(){
+  bands.forEach(renderBand);
+  const total = schools.filter(s=> activeCats.size===0 || s.cats.some(c=>activeCats.has(c))).length;
+  document.getElementById('resultCount').textContent = `${total} school${total===1?"":"s"} in view`;
+}
+
+const allTab = document.querySelector('.tab[data-cat="all"]');
+const catTabs = document.querySelectorAll('.tab[data-cat]:not([data-cat="all"])');
+
+allTab.addEventListener('click', ()=>{
+  activeCats.clear();
+  catTabs.forEach(b=>b.classList.remove('active'));
+  allTab.classList.add('active');
+  renderAll();
+});
+
+catTabs.forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const cat = btn.dataset.cat;
+    if(activeCats.has(cat)){
+      activeCats.delete(cat);
+      btn.classList.remove('active');
+    } else {
+      activeCats.add(cat);
+      btn.classList.add('active');
+    }
+    allTab.classList.toggle('active', activeCats.size===0);
+    renderAll();
+  });
+});
+
+renderAll();
+</script>
+
+</body>
+</html>
